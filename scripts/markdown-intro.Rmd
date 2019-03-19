@@ -1,0 +1,34 @@
+---
+title: "My First R-Markdown Report"
+author: "Emmett Leyne"
+date: "19 March 2019"
+output: html_document
+---
+
+## Getting started
+
+```{r,warning=FALSE, message=FALSE}
+library(tidyverse)
+
+gapminder <- read_csv('../raw_data/gapminder_data.csv')
+```
+
+Add some text. Make a figure.....
+
+```{r}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(aes(colour = continent)) +  # Removes the colour from being inherited
+  scale_x_log10() +
+  geom_smooth(method = 'lm')
+```
+
+We can also use R inline like `r 12 - 5`
+
+```{r}
+a <- 5
+b <- 17
+```
+
+and do R inline The mean of the numbers `r a` and `r b` is `r mean (a:b)`
+
+
